@@ -17,13 +17,12 @@
    </body>
 <script type="text/javascript" src="../echarts.min.js"></script>
 <script type="text/javascript">
-function shuaxin() {
-     if(location.href.indexOf("#reloaded")==-1){
-        location.href=location.href+"#reloaded";
-        location.reload();
-    }
- }
-		
+function shuaxin(){
+           if (location.href.indexOf("&xyz=") < 0) {
+               location.href = location.href + "&xyz=" + Math.random();
+               location.reload();
+           }
+        }
 var dom利润 = document.getElementById("利润");
 var myChart利润 = echarts.init(dom利润);
 option利润 = 
