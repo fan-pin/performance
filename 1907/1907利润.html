@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html style="height:100%;"><!--//html和body要同时设置100%高度，否则底部产生空白区域，不好看-->
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <!--// div中的参数
+	text-align:center 文字水平居中
+	margin:auto 将div水平居中 margin: 0 上下左右边距都为0
+	用吸管提取的颜色需要10进制转16进制，否则颜色不对
+   -->
+   <body style="height:100%; margin:0">
+     <div style="width:100%; height:100px; line-height:50px; background-color:#373941; text-align:center; color:white">
+	   <h3>截至2019年7月累计实现利润2.62亿元<br>利润指标按7月的进度，完成率为58.45%</h3>
+	 </div>
+     <div style="width:100%; height:100%; background-color:#4C4E59;">
+	 <br>
+	   <div  style="position:relative;width: 550px; margin:auto; margin-bottom:20px; background-color:white;">
+		 <div id="利润" style="position:relative; left:20px; top:20px; width:500px; height:800px; "></div>
+	   </div>
+     </div>   
+   </body>
+<script type="text/javascript" src="../echarts.min.js"></script>
+<script type="text/javascript">
+var dom利润 = document.getElementById("利润");
+var myChart利润 = echarts.init(dom利润);
+option利润 = 
+   {
+    title: {
+        text: "2019年7月"
+    },
+    tooltip: {trigger: "axis"},
+    legend: {
+        data: ["累计利润", "当月指标完成率"],
+		textStyle: {
+            fontSize: 16
+        }
+    },
+    toolbox: {
+        feature: {
+            dataView: {
+                readOnly: true,
+                show: true
+            },
+            magicType: {
+                show: false,
+                type: ["line", "bar"]
+            },
+            dataZoom: {show: true}
+        }
+    },
+    calculable: true,
+    xAxis: [
+        {
+            type: "value",
+            axisLabel: {
+                show: true,
+                formatter: "{value}万",
+                textStyle: {fontSize: 12}
+            }
+        },
+        {
+            type: "value",
+            axisLabel: {
+                formatter: "{value}%",
+                show: true,
+                textStyle: {fontSize: 16}
+            }
+        }
+    ],
+    yAxis: [
+        {
+            type: "category",
+            data: ["其他", "项目部", "租赁", "昆明", "职教中心", "疗养院", "置业", "医院", "勘察", "工安", "成都建设", "上海", "国际", "北方", "越南", "城建", "路桥", "深圳", "工业建设", "重庆", "南京", "武汉"],
+            position: "center",
+            axisLabel: {
+                show: true,
+                textStyle: {
+				fontSize: 16,
+				align: "center"
+				}
+            }	
+        }
+    ],
+    series: [
+        {
+            name: "累计利润",
+            type: "bar",
+            data: [-1544, -85, -79, -42, -10, -7, 64, 178, 369, 444, 701, 771, 896, 1083, 1099, 1225, 1855, 2369, 2474, 4003, 4910, 5519],
+            smooth: true,
+            xAxisIndex: 0,
+            itemStyle: {
+                normal: {
+					 label: {show: true},
+                    color: "rgb(255,127,80)"
+                }
+            }
+        },
+        {
+            name: "当月指标完成率",
+            type: "line",
+            data: ["-", -4.86, -108.52, -2.02, "-", -23.48, "-", 35.8, 42.19, 36.22, 8.29, 41.3, 76.82, 74.25, 376.93, 46.66, 46.08, 101.53, 65.24, 98.03, 129.5, 126.14],
+            smooth: true,
+            xAxisIndex: 1,
+			itemStyle: {
+                normal: {
+			label: {show: true},
+                    color: "#373941"
+                }
+            }
+        }
+    ]
+}
+    myChart利润.setOption(option利润);
+</script>
+</html>
