@@ -2,16 +2,16 @@
 <html style="height:100%;"><!--//html和body要同时设置100%高度，否则底部产生空白区域，不好看-->
    <head>
        <meta charset="utf-8">
-	   <meta http-equiv="Expires" CONTENT="0">
-	  <meta http-equiv="Cache-Control" CONTENT="no-cache">
-	  <meta http-equiv="Pragma" CONTENT="no-cache">
+	   <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+	   <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+	   <META HTTP-EQUIV="Expires" CONTENT="0">
    </head>
    <!--// div中的参数
 	12行删除text-align:center 文字水平居中
 	17行删除margin:auto 将div水平居中 margin: 0 上下左右边距都为0
 	用吸管提取的颜色需要10进制转16进制，否则颜色不对
    -->
-   <body οnunlοad="opener.location.reload()">
+   <body style="height:100%; margin:0">
      <div style="width:100%; height:50px; line-height:50px; background-color:#373941; color:white">
 	   <h2>1&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;绩效看板</h2>
 	 </div>
@@ -24,11 +24,9 @@
 	   </div>
      </div>   
    </body>
-<script language="javascript">
-window.opener.document.location.reload()
-</script>
 <script type="text/javascript" src="echarts.min.js"></script>
 <script type="text/javascript">	
+window.location.reload();
 var dom收入 = document.getElementById("收入");
 var myChart收入 = echarts.init(dom收入);
 option收入 = 
