@@ -11,7 +11,7 @@
 	17行删除margin:auto 将div水平居中 margin: 0 上下左右边距都为0
 	用吸管提取的颜色需要10进制转16进制，否则颜色不对
    -->
-   <body onLoad="body_onload()" style="height:100%; margin:0">
+   <body onLoad="reurl()" style="height:100%; margin:0">
      <div style="width:100%; height:50px; line-height:50px; background-color:#373941; color:white">
 	   <h2>1&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;绩效看板</h2>
 	 </div>
@@ -28,10 +28,19 @@
 <script type="javascript">
 setcookie('param_cookie',0,10);
 function body_onload()
-{
-    if(0==getcookie('param_cookie')){
-        setcookie("param_cookie",1,10);
-        window.location.reload(true); 
+function reurl() {
+
+
+    url = location.href; //把当前页面的地址赋给变量 url
+
+    var times = url.split("?"); //分切变量 url 分隔符号为 "?"
+
+    if (times[1] != 1) { //如果?后的值不等于1表示没有刷新
+
+        url += "?1"; //把变量 url 的值加入 ?1
+
+        self.location.replace(url); //刷新页面
+
     }
 }
 </script>
