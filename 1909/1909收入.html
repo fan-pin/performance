@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html style="height:100%;">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body onunload="javascript:window.location.reload()" style="height:100%; margin:0">
+     <div style="width:100%; height:100px; line-height:50px; background-color:#373941; color:white">
+	   <h2>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;截至2019年9月累计实现收入105.46亿元
+	    <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;收入指标按9月的进度，完成率为86%</h2>
+	 </div>
+     <div style="width:100%; height:100%; background-color:#4C4E59;">
+	 <br>
+	   <div  style="position:relative; width:700px; left:10px; margin-bottom:20px; background-color:white;">
+		 <div id="收入" style="position:relative; left:10px; top:20px; width:650px; height:1000px; "></div>
+	   </div>
+     </div>   
+   </body>
+<script type="text/javascript" src="../echarts.min.js"></script>
+<script type="text/javascript">
+var dom收入 = document.getElementById("收入");
+var myChart收入 = echarts.init(dom收入);
+option收入 = 
+   {
+    title: {
+        text: "2019年9月"
+    },
+    tooltip: {trigger: "axis"},
+    legend: {
+        data: ["累计收入", "当月指标完成率"],
+		textStyle: {
+            fontSize: 16
+        }
+    },
+    toolbox: {
+        feature: {
+            dataView: {
+                readOnly: true,
+                show: true
+            },
+            magicType: {
+                show: false,
+                type: ["line", "bar"]
+            },
+            dataZoom: {show: true}
+        }
+    },
+    calculable: true,
+    xAxis: [
+        {
+            type: "value",
+            axisLabel: {
+                show: true,
+                formatter: "{value}万",
+                textStyle: {fontSize: 12}
+            }
+        },
+        {
+            type: "value",
+            axisLabel: {
+                formatter: "{value}%",
+                show: true,
+                textStyle: {fontSize: 16}
+            }
+        }
+    ],
+    yAxis: [
+        {
+            type: "category",
+            data: ["置业","宾馆","学校","物业","勘察","租赁","上海","医院","项目部","国际","昆明","越南","其他","北方","工安","城建","武汉","路桥","南京","工业建设","重庆","成都建设","深圳"],
+            position: "left",
+            axisLabel: {
+                show: true,
+                textStyle: {
+				fontSize: 16,
+				align: "right"
+				}
+            }
+        }
+    ],
+    series: [
+        {
+            name: "累计收入",
+            type: "bar",
+			itemStyle: {
+                    normal: {//定义一个list，设置柱状图颜色不同的值，
+                        color: function(params) {
+                            // build a color map as your need.
+                            var colorList = [
+                              '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+                               '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+                               '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0',
+							   '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+                               '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+                            ];
+                            return colorList[params.dataIndex]
+                        },
+			label: {show: true}
+                    }
+                },
+            data: [0,68,83,272,326,355,1041,1259,1408,2914,3045,3506,3935,5282,6293,6440,6842,8579,10103,12513,12891,20319,33496],
+            smooth: true,
+            xAxisIndex: 0
+        },
+        {
+            name: "当月指标完成率",
+            type: "line",
+            data: ["-",91,107,"-",76,100,56,101,34,96,38,245,"-",63,71,37,107,81,116,92,73,92,116],
+            smooth: true,
+            xAxisIndex: 1
+        }
+    ]
+}
+    myChart收入.setOption(option收入);
+</script>
+</html>
